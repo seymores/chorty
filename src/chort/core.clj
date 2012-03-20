@@ -4,6 +4,8 @@
 
 (println "Starting up chort")
 
+(defrecord Link [url, code, date])
+
 (defn uuid[] 
   "Get simple UUID string"
   (.toString (java.util.UUID/randomUUID)))
@@ -25,8 +27,9 @@
 
 (defn shorten[url]
   "Shorten url and add to db"
-  (let code (Long/toHexString (rand-int 9999999))
-  
+  (let [code (Long/toHexString (rand-int 9999999))
+        record (Link. url code (java.util.Date.)) ]
+    "XXX: Save to db"
     )
 
   )
